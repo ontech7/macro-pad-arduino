@@ -20,6 +20,8 @@ When you click "Reset macros", you can reset one of the button already configure
 
 In the end, when you click "START", they macro attached to the buttons will activate.
 
+Feel free to add support for EEPROM, to save macros even after turning off and turning on, and to add Mouse modifiers as well.
+
 # Images
 ![Macro Pad - Front](https://i.imgur.com/JXZ0cWf.jpg)  
 
