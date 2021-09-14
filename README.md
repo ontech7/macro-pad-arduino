@@ -20,7 +20,7 @@ After that, it's possible to select from 1 to 3 keys for that macro. You can cho
 
 When you click "Reset macros", you can reset one of the button already configured.
 
-In the end, when you click "START", they macro attached to the buttons will activate.
+In the end, when you click "START", the macro attached to the buttons will activate.
 
 Feel free to add support for EEPROM, to save macros even after turning off and turning on, and to add Mouse modifiers as well.
 
