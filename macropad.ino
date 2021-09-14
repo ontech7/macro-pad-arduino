@@ -119,7 +119,14 @@ void loop() {
         }
       } else if (reset) {
         macros[0][btn_selected] = 0;
+        macros[1][btn_selected] = 0;
+        macros[2][btn_selected] = 0;
         macroNamesIndex[0][btn_selected] = 0;
+        macroNamesIndex[1][btn_selected] = 0;
+        macroNamesIndex[2][btn_selected] = 0;
+        macroType[0][btn_selected] = 0;
+        macroType[1][btn_selected] = 0;
+        macroType[2][btn_selected] = 0;
         numMacros[btn_selected] = 0;
         //EEPROM.put(btn_selected*8, macroModifiers[selected_option]);
         //EEPROM.put(btn_selected*8+32, selected_option);
