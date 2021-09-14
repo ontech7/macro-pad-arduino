@@ -13,7 +13,9 @@ It's possible to setup all the macros directly via Arduino, using the script ava
 
 ATmega32u4-based boards allow to emulate keyboard/mouse, so after setupping the macros, you can emulate multiple keys using the 4 buttons.  
 
-In the menu, when you click "Set macros", you can select one of the button to configure.  
+In the menu, button 1 is "Up", button 2 is "Down", button 3 is "Enter" and button 4 is "Back".
+
+When you click "Set macros", you can select one of the button to configure.  
 After that, it's possible to select from 1 to 3 keys for that macro. You can choose among "Modifiers", "Alphabet" and/or "Numbers".  
 
 When you click "Reset macros", you can reset one of the button already configured.
