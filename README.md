@@ -2,10 +2,10 @@
 Macro pad configurable directly via Arduino  
 
 # Hardware used
-1x Arduino Pro Micro clone (ATmega32u4) - KeeYees PRO Micro  
-1x OLED 0.96" 128x64  
-4x 6x6x6 buttons  
-4x 10k Ohm resistors  
+1x **Arduino Pro Micro clone** (ATmega32u4) - KeeYees PRO Micro  
+1x **OLED 0.96" 128x64**  
+4x **6x6x6 buttons**  
+4x **10k Ohm resistors**  
 Cables, tin, matrix board  
 
 # How it works
@@ -13,18 +13,22 @@ It's possible to setup all the macros directly via Arduino, using the script ava
 
 ATmega32u4-based boards allow to emulate keyboard/mouse, so after setupping the macros, you can emulate multiple keys using the 4 buttons.  
 
-In the menu, button 1 is "Up", button 2 is "Down", button 3 is "Enter" and button 4 is "Back".
+In the menu, button 1 is "**Up**", button 2 is "**Down**", button 3 is "**Confirm/Enter**" and button 4 is "**Cancel/Back**".
 
-When you click "Set macros", you can select one of the button to configure.  
-After that, it's possible to select from 1 to 3 keys for that macro. You can choose among "Modifiers", "Alphabet" and/or "Numbers".  
+When you click "**Set macros**", you can select one of the button to configure.  
+After that, it's possible to select from 1 to 3 keys for that macro. You can choose among "**Modifiers**", "**Alphabet**" and/or "**Numbers**".  
 
-When you click "Reset macros", you can reset one of the button already configured.
+When you click "**Reset macros**", you can reset one of the button already configured.
 
-In the end, when you click "START", the macro attached to the buttons will activate.
+In the end, when you click "**START**", the macro attached to the buttons will activate.
+
+To **go back** after you started the macro listener, you can click simultaneously button 1 (**Up**), button 2 (**Down**) and button 4 (**Cancel/Back**).
 
 Feel free to add support for EEPROM, to save macros even after turning off and turning on, and to add Mouse modifiers as well.
 
 # Images
+![Macro Pad - 3D Printed cover](https://i.imgur.com/C1tk72Y.jpeg)
+
 ![Macro Pad - Front](https://i.imgur.com/JXZ0cWf.jpg)  
 
 ![Macro Pad - Rear](https://i.imgur.com/xK9TXbX.jpg)  
