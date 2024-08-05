@@ -13,8 +13,8 @@
 #define SCREEN_ADDRESS 0x3C
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
-uint8_t macroModifiers[28] = {KEY_LEFT_CTRL, KEY_LEFT_GUI, KEY_LEFT_SHIFT, 0xE0 /* ENTER */, KEY_LEFT_ALT, KEY_UP_ARROW, KEY_DOWN_ARROW, KEY_LEFT_ARROW, KEY_RIGHT_ARROW, KEY_BACKSPACE, KEY_TAB, KEY_ESC, KEY_INSERT, KEY_DELETE, KEY_PAGE_UP, KEY_PAGE_DOWN, KEY_F1, KEY_F2, KEY_F3, KEY_F4, KEY_F5, KEY_F6, KEY_F7, KEY_F8, KEY_F9, KEY_F10, KEY_F11, KEY_F12};
-String macroModifiersNames[28] = {"Ctrl", "Cmd", "Shift", "Enter", "Alt", "Up", "Down", "Left", "Right", "Bksp", "Tab", "Esc", "Ins", "Del", "PgUp", "PgDw", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12"};
+uint8_t macroModifiers[33] = {KEY_LEFT_CTRL, KEY_LEFT_GUI, KEY_LEFT_SHIFT, 0xE0 /* ENTER */, KEY_LEFT_ALT, KEY_UP_ARROW, KEY_DOWN_ARROW, KEY_LEFT_ARROW, KEY_RIGHT_ARROW, KEY_BACKSPACE, KEY_TAB, KEY_ESC, KEY_INSERT, KEY_DELETE, KEY_PAGE_UP, KEY_PAGE_DOWN, KEY_F1, KEY_F2, KEY_F3, KEY_F4, KEY_F5, KEY_F6, KEY_F7, KEY_F8, KEY_F9, KEY_F10, KEY_F11, KEY_F12, 0xDC /* SLASH */, 0xDD /* ASTERISK */, 0xDE /* MINUS */, 0xDF /* PLUS */, 0xEB /* DOT */};
+String macroModifiersNames[33] = {"Ctrl", "Cmd", "Shift", "Enter", "Alt", "Up", "Down", "Left", "Right", "Bksp", "Tab", "Esc", "Ins", "Del", "PgUp", "PgDw", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "/", "*", "-", "+", "."};
 uint8_t macroAlphabet[26] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
 uint8_t macroNumbers[10] = {'1', '2', '3', '4', '5', '6', '7', '8', '9', '0'};
 
@@ -146,12 +146,7 @@ void loop() {
     }
   } else {
     if (btn0 == HIGH && btn1 == HIGH && btn3 == HIGH) {
-      for (int i = 0; i < 2; i++) {
-        Keyboard.release(macros[i][0]);
-        Keyboard.release(macros[i][1]);
-        Keyboard.release(macros[i][2]);
-        Keyboard.release(macros[i][3]);
-      }
+      Keyboard.releaseAll();
       btn_prev0 = btn0;
       btn_prev1 = btn1;
       btn_prev2 = btn2;
@@ -358,7 +353,7 @@ void setMenuLevel() {
     setOptionCursor();
   } else if (current_menu_level == 4) {
     if (macroType[current_macro_num][btn_selected] == 0) {
-      max_options = 26;
+      max_options = 32;
     } else if (macroType[current_macro_num][btn_selected] == 1) {
       max_options = 25;
     } else if (macroType[current_macro_num][btn_selected] == 2) {
