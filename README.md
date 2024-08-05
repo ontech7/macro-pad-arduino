@@ -21,17 +21,17 @@ You can set up all macros directly via Arduino using the script available in thi
 
 ## Guide
 
-- In the menu, button 1 is "Up", button 2 is "Down", button 3 is "Confirm/Enter", and button 4 is "Cancel/Back".
+- In the menu, button 1 is "**Up**", button 2 is "**Down**", button 3 is "**Confirm/Enter**", and button 4 is "**Cancel/Back**".
 - To configure a button:
-  - Select "Set macros".
+  - Select "**Set macros**".
   - Choose one of the buttons to configure.
-- Select up to three keys for that macro from "Modifiers", "Alphabet", and/or "Numbers".
+- Select up to three keys for that macro from "**Modifiers**", "**Alphabet**", and/or "**Numbers**".
 - To reset a configured button:
-  - Select "Reset macros".
+  - Select "**Reset macros**".
   - Choose the button to reset.
 - To activate the macros:
-  - Select "START".
-- To return to the menu after starting the macro listener, simultaneously press button 1 (Up), button 2 (Down), and button 4 (Cancel/Back).
+  - Select "**START**".
+- To return to the menu after starting the macro listener, simultaneously press button 1 (**Up**), button 2 (**Down**), and button 4 (**Cancel/Back**).
 
 Feel free to add support for EEPROM to save macros even after powering off and to include Mouse modifiers.
 
