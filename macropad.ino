@@ -13,10 +13,11 @@
 #define SCREEN_ADDRESS 0x3C
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
-uint8_t macroModifiers[33] = {KEY_LEFT_CTRL, KEY_LEFT_GUI, KEY_LEFT_SHIFT, 0xE0 /* ENTER */, KEY_LEFT_ALT, KEY_UP_ARROW, KEY_DOWN_ARROW, KEY_LEFT_ARROW, KEY_RIGHT_ARROW, KEY_BACKSPACE, KEY_TAB, KEY_ESC, KEY_INSERT, KEY_DELETE, KEY_PAGE_UP, KEY_PAGE_DOWN, KEY_F1, KEY_F2, KEY_F3, KEY_F4, KEY_F5, KEY_F6, KEY_F7, KEY_F8, KEY_F9, KEY_F10, KEY_F11, KEY_F12, 0xDC /* SLASH */, 0xDD /* ASTERISK */, 0xDE /* MINUS */, 0xDF /* PLUS */, 0xEB /* DOT */};
-String macroModifiersNames[33] = {"Ctrl", "Cmd", "Shift", "Enter", "Alt", "Up", "Down", "Left", "Right", "Bksp", "Tab", "Esc", "Ins", "Del", "PgUp", "PgDw", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12", "/", "*", "-", "+", "."};
+uint8_t macroModifiers[28] = {KEY_LEFT_CTRL, KEY_LEFT_GUI, KEY_LEFT_SHIFT, 0xE0 /* ENTER */, KEY_LEFT_ALT, KEY_UP_ARROW, KEY_DOWN_ARROW, KEY_LEFT_ARROW, KEY_RIGHT_ARROW, KEY_BACKSPACE, KEY_TAB, KEY_ESC, KEY_INSERT, KEY_DELETE, KEY_PAGE_UP, KEY_PAGE_DOWN, KEY_F1, KEY_F2, KEY_F3, KEY_F4, KEY_F5, KEY_F6, KEY_F7, KEY_F8, KEY_F9, KEY_F10, KEY_F11, KEY_F12};
+String macroModifiersNames[28] = {"Ctrl", "Cmd", "Shift", "Enter", "Alt", "Up", "Down", "Left", "Right", "Bksp", "Tab", "Esc", "Ins", "Del", "PgUp", "PgDw", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12"};
 uint8_t macroAlphabet[26] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
 uint8_t macroNumbers[10] = {'1', '2', '3', '4', '5', '6', '7', '8', '9', '0'};
+uint8_t macroOthers[32] = {'!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+', '=', '`', '~', '{', '}', '[', ']', '\\', '|', ';', ':', '\'', '"', ',', '<', '.', '>', '/', '?'};
 
 const uint8_t buttonPin0 = 7;
 const uint8_t buttonPin1 = 6;
@@ -104,6 +105,8 @@ void loop() {
             macros[current_macro_num][btn_selected] = macroAlphabet[selected_option];
           } else if (macroType[current_macro_num][btn_selected] == 2) {
             macros[current_macro_num][btn_selected] = macroNumbers[selected_option];
+          } else if (macroType[current_macro_num][btn_selected] == 3) {
+            macros[current_macro_num][btn_selected] = macroOthers[selected_option];
           }
           macroNamesIndex[current_macro_num][btn_selected] = selected_option;
           //EEPROM.put(btn_selected*8, macroModifiers[selected_option]);
@@ -251,6 +254,8 @@ void setMenuLevel() {
         display.print(char(macroAlphabet[macroNamesIndex[i][0]]));
       } else if (macroType[i][0] == 2) {
         display.print(char(macroNumbers[macroNamesIndex[i][0]]));
+      } else if (macroType[i][0] == 3) {
+        display.print(char(macroOthers[macroNamesIndex[i][0]]));
       }
       if(i < numMacros[0] - 1) {
         display.print("+");
@@ -265,6 +270,8 @@ void setMenuLevel() {
         display.print(char(macroAlphabet[macroNamesIndex[i][1]]));
       } else if (macroType[i][1] == 2) {
         display.print(char(macroNumbers[macroNamesIndex[i][1]]));
+      } else if (macroType[i][1] == 3) {
+        display.print(char(macroOthers[macroNamesIndex[i][1]]));
       }
       if(i < numMacros[1] - 1) {
         display.print("+");
@@ -279,6 +286,8 @@ void setMenuLevel() {
         display.print(char(macroAlphabet[macroNamesIndex[i][2]]));
       } else if (macroType[i][2] == 2) {
         display.print(char(macroNumbers[macroNamesIndex[i][2]]));
+      } else if (macroType[i][2] == 3) {
+        display.print(char(macroOthers[macroNamesIndex[i][2]]));
       }
       if(i < numMacros[2] - 1) {
         display.print("+");
@@ -293,6 +302,8 @@ void setMenuLevel() {
         display.print(char(macroAlphabet[macroNamesIndex[i][3]]));
       } else if (macroType[i][3] == 2) {
         display.print(char(macroNumbers[macroNamesIndex[i][3]]));
+      } else if (macroType[i][3] == 3) {
+        display.print(char(macroOthers[macroNamesIndex[i][3]]));
       }
       if(i < numMacros[3] - 1) {
         display.print("+");
@@ -339,7 +350,7 @@ void setMenuLevel() {
     display.print("3");
     setOptionCursor();
   } else if (current_menu_level == 3) {
-    max_options = 2;
+    max_options = 3;
     macroType[current_macro_num][btn_selected] = selected_option;
     page = 0;
     display.setCursor(80,0);
@@ -350,14 +361,18 @@ void setMenuLevel() {
     display.print("Alphabet");
     display.setCursor(10,20);
     display.print("Numbers");
+    display.setCursor(10,30);
+    display.print("Others");
     setOptionCursor();
   } else if (current_menu_level == 4) {
     if (macroType[current_macro_num][btn_selected] == 0) {
-      max_options = 32;
+      max_options = 27;
     } else if (macroType[current_macro_num][btn_selected] == 1) {
       max_options = 25;
     } else if (macroType[current_macro_num][btn_selected] == 2) {
       max_options = 9;
+    } else if (macroType[current_macro_num][btn_selected] == 3) {
+      max_options = 31;
     }
     set = true;
     setOptionCursor();
@@ -369,6 +384,8 @@ void setMenuLevel() {
         display.print(char(macroAlphabet[i]));
       } else if (macroType[current_macro_num][btn_selected] == 2) {
         display.print(char(macroNumbers[i]));
+      }  else if (macroType[current_macro_num][btn_selected] == 3) {
+        display.print(char(macroOthers[i]));
       }
     }
     display.display();
