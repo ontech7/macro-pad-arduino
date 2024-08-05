@@ -1,5 +1,5 @@
 # Macro Pad - Arduino
-Macro pad configurable directly via Arduino  
+The macros can be configured directly on the macro pad, so there's no need to modify and re-flash the code on the Arduino every time you want to change a macro.
 
 ## Summary
 1) [Hardware used](#hardware-used)
@@ -17,19 +17,23 @@ Macro pad configurable directly via Arduino
 Cables, tin, matrix board  
 
 ## How it works
-It's possible to setup all the macros directly via Arduino, using the script available in the repo.  
-ATmega32u4-based boards allow to emulate keyboard/mouse, so after setupping the macros, you can emulate multiple keys using the 4 buttons.  
+You can set up all macros directly via Arduino using the script available in this repository. Boards based on the ATmega32u4 allow keyboard/mouse emulation, enabling you to emulate multiple key presses using the four buttons after configuring the macros.
 
 ## Guide
 
-- In the menu, button 1 is "**Up**", button 2 is "**Down**", button 3 is "**Confirm/Enter**" and button 4 is "**Cancel/Back**".
-- Selected "**Set macros**", you can select one of the button to configure.  
-After that, it's possible to select from 1 to 3 keys for that macro. You can choose among "**Modifiers**", "**Alphabet**" and/or "**Numbers**".  
-- Selected "**Reset macros**", you can reset one of the button already configured.  
-- Selected "**START**", the macro attached to the buttons will activate.
-- To **go back** after you started the macro listener, you can click simultaneously button 1 (**Up**), button 2 (**Down**) and button 4 (**Cancel/Back**).
+- In the menu, button 1 is "Up", button 2 is "Down", button 3 is "Confirm/Enter", and button 4 is "Cancel/Back".
+- To configure a button:
+  - Select "Set macros".
+  - Choose one of the buttons to configure.
+- Select up to three keys for that macro from "Modifiers", "Alphabet", and/or "Numbers".
+- To reset a configured button:
+  - Select "Reset macros".
+  - Choose the button to reset.
+- To activate the macros:
+  - Select "START".
+- To return to the menu after starting the macro listener, simultaneously press button 1 (Up), button 2 (Down), and button 4 (Cancel/Back).
 
-Feel free to add support for EEPROM, to save macros even after turning off and turning on, and to add Mouse modifiers as well.
+Feel free to add support for EEPROM to save macros even after powering off and to include Mouse modifiers.
 
 ## Images
 ![Macro Pad - 3D Printed cover](https://i.imgur.com/5l0VHF7.jpeg)
@@ -45,4 +49,6 @@ Feel free to add support for EEPROM, to save macros even after turning off and t
 You can find the **STLs**, **.blend** and **.3mf** projects on [this link](https://drive.google.com/drive/folders/1iDR6E4x4kF29GcKFQsr7bH7N1tLRjrTk?usp=sharing)
 
 ## Credits
-$ [Andrea Losavio](https://www.linkedin.com/in/andrea-losavio-a60246107/)
+[Andrea Losavio](https://www.linkedin.com/in/andrea-losavio-a60246107/)  
+
+Feel free to reach out with any questions or suggestions!  
