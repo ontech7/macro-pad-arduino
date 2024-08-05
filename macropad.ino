@@ -146,54 +146,64 @@ void loop() {
     }
   } else {
     if (btn0 == HIGH && btn1 == HIGH && btn3 == HIGH) {
+      for (int i = 0; i < 2; i++) {
+        Keyboard.release(macros[i][0]);
+        Keyboard.release(macros[i][1]);
+        Keyboard.release(macros[i][2]);
+        Keyboard.release(macros[i][3]);
+      }
+      btn_prev0 = btn0;
+      btn_prev1 = btn1;
+      btn_prev2 = btn2;
+      btn_prev3 = btn3;
       goBack();
       setMenuLevel();
-    }
-    
-    if (btn0 != btn_prev0) {
-      if (btn0 == HIGH) {
-        for (int i = 0; i < numMacros[btn_selected]; i++) {
-          Keyboard.press(macros[i][0]);
-        }
-      } else {
-        for (int i = 0; i < numMacros[btn_selected]; i++) {
-          Keyboard.release(macros[i][0]);
-        }
-      }
-    }
-
-    if (btn1 != btn_prev1) {
-      if (btn1 == HIGH) {
-        for (int i = 0; i < numMacros[btn_selected]; i++) {
-          Keyboard.press(macros[i][1]);
-        }
-      } else {
-        for (int i = 0; i < numMacros[btn_selected]; i++) {
-          Keyboard.release(macros[i][1]);
+    } else {
+      if (btn0 != btn_prev0) {
+        if (btn0 == HIGH) {
+          for (int i = 0; i < numMacros[btn_selected]; i++) {
+            Keyboard.press(macros[i][0]);
+          }
+        } else {
+          for (int i = 0; i < numMacros[btn_selected]; i++) {
+            Keyboard.release(macros[i][0]);
+          }
         }
       }
-    }
-
-    if (btn2 != btn_prev2) {
-      if (btn2 == HIGH) {
-        for (int i = 0; i < numMacros[btn_selected]; i++) {
-          Keyboard.press(macros[i][2]);
-        }
-      } else {
-        for (int i = 0; i < numMacros[btn_selected]; i++) {
-          Keyboard.release(macros[i][2]);
+  
+      if (btn1 != btn_prev1) {
+        if (btn1 == HIGH) {
+          for (int i = 0; i < numMacros[btn_selected]; i++) {
+            Keyboard.press(macros[i][1]);
+          }
+        } else {
+          for (int i = 0; i < numMacros[btn_selected]; i++) {
+            Keyboard.release(macros[i][1]);
+          }
         }
       }
-    }
-
-    if (btn3 != btn_prev3) {
-      if (btn3 == HIGH) {
-        for (int i = 0; i < numMacros[btn_selected]; i++) {
-          Keyboard.press(macros[i][3]);
+  
+      if (btn2 != btn_prev2) {
+        if (btn2 == HIGH) {
+          for (int i = 0; i < numMacros[btn_selected]; i++) {
+            Keyboard.press(macros[i][2]);
+          }
+        } else {
+          for (int i = 0; i < numMacros[btn_selected]; i++) {
+            Keyboard.release(macros[i][2]);
+          }
         }
-      } else {
-        for (int i = 0; i < numMacros[btn_selected]; i++) {
-          Keyboard.release(macros[i][3]);
+      }
+  
+      if (btn3 != btn_prev3) {
+        if (btn3 == HIGH) {
+          for (int i = 0; i < numMacros[btn_selected]; i++) {
+            Keyboard.press(macros[i][3]);
+          }
+        } else {
+          for (int i = 0; i < numMacros[btn_selected]; i++) {
+            Keyboard.release(macros[i][3]);
+          }
         }
       }
     }
